@@ -27,6 +27,9 @@ class ClassicalWillingManager(BaseWillingManager):
 
         interested_rate = willing_info.interested_rate * global_config.normal_chat.response_interested_rate_amplifier
 
+        if not willing_info.group_info:
+           return 1.0
+
         if interested_rate > 0.4:
             current_willing += interested_rate - 0.3
 
